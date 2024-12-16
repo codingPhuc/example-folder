@@ -23,6 +23,10 @@ const listCoreConcepts = [
   },
 ];
 function App() {
+  function handleSelect(selectedButton) {
+    console.log(selectedButton);
+  }
+
   return (
     <div>
       <Header></Header>
@@ -39,12 +43,15 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton>Componets</TabButton>
-            <TabButton>JSX</TabButton>
-            <TabButton>Props</TabButton>
-            <TabButton>State</TabButton>
+            {/* we are passing a function as a props */}
+            <TabButton onSelect={() => handleSelect("components")}>
+              Componets
+            </TabButton>
+            <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
+            <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
+            <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
           </menu>
-          
+          Dynamic Content
         </section>
       </main>
     </div>
