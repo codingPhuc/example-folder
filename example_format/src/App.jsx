@@ -4,6 +4,7 @@ import reactCoreconcepts from "./assets/react-core-concepts.png";
 import config from "./assets/config.png";
 import jsxUi from "./assets/jsx-ui.png";
 import TabButton from "./components/TabButton";
+import { useState } from "react";
 
 const listCoreConcepts = [
   {
@@ -22,11 +23,21 @@ const listCoreConcepts = [
     imagePath: jsxUi,
   },
 ];
+// tell react this  component function will executed again
 function App() {
-  function handleSelect(selectedButton) {
-    console.log(selectedButton);
-  }
+  // let tabContent = "Please  click a button";
+  const [selectedTopic, setSelectedTopic] = useState("please click a button");
 
+  function handleSelect(selectedButton) {
+    // console.log(selectedButton);
+    // event thought we assign the tab with new value it still does not change
+    // the function is executed but the UI is not updated
+    tabContent = selecetedButton;
+    setSelectedTopic(selectedButton);
+    console.log(selectedTopic);
+  }
+  // this will not be executing agian due to the nature of react
+  console.log("APP component  executing");
   return (
     <div>
       <Header></Header>
@@ -51,7 +62,7 @@ function App() {
             <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
             <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
           </menu>
-          Dynamic Content
+          {selectedTopic}
         </section>
       </main>
     </div>
