@@ -107,7 +107,9 @@ function App() {
   // let tabContent = "Please  click a button";
   const [selectedTopic, setSelectedTopic] = useState("");
   // way used the tabs content is set before return
+
   let tabContent = <p>Please select a topic.</p>;
+
   if (selectedTopic) {
     tabContent = (
       <div di="tab-content">
@@ -145,12 +147,30 @@ function App() {
           <h2>Examples</h2>
           <menu>
             {/* we are passing a function as a props */}
-            <TabButton onSelect={() => handleSelect("components")}>
+            <TabButton
+              isSelected={selectedTopic === "components"}
+              onSelect={() => handleSelect("components")}
+            >
               Componets
             </TabButton>
-            <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
-            <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
-            <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
+            <TabButton
+              isSelected={selectedTopic === "jsx"}
+              onSelect={() => handleSelect("jsx")}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === "props"}
+              onSelect={() => handleSelect("props")}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === "state"}
+              onSelect={() => handleSelect("state")}
+            >
+              State
+            </TabButton>
           </menu>
           {/* in this the tabs content is return while being change  */}
           {/* {!selectedTopic ? (
