@@ -136,11 +136,14 @@ function App() {
       <main>
         {/* <h2>Time to get started!</h2> */}
         <section id="core-concepts">
+          {/* you can also used a maplist to generate the items dynamically  */}
           <ul>
-            <CoreConcept {...listCoreConcepts[0]}></CoreConcept>
-            <CoreConcept {...listCoreConcepts[1]}></CoreConcept>
-            <CoreConcept {...listCoreConcepts[2]}></CoreConcept>
-            {/* <CoreConcept></CoreConcept> */}
+            {CORE_CONCEPTS.map((conceptItem) => (
+              <CoreConcept
+                key={conceptItem.title}
+                {...conceptItem}
+              ></CoreConcept>
+            ))}
           </ul>
         </section>
         <section id="examples">
